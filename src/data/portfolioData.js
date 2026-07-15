@@ -199,13 +199,13 @@ export const currentCourse = {
       icon: '🐍',
       modules: [
         { name: 'Python Fundamentals', status: 'completed' },
-        { name: 'Advanced Python', status: 'practising' },
-        { name: 'Object-Oriented Programming', status: 'practising' },
+        { name: 'Advanced Python', status: 'completed' },
+        { name: 'Object-Oriented Programming', status: 'completed' },
         { name: 'File Handling', status: 'completed' },
         { name: 'Exception Handling', status: 'completed' },
         { name: 'Modules and Packages', status: 'completed' },
-        { name: 'Python Automation', status: 'learning' },
-        { name: 'Data Structures and Algorithms Fundamentals', status: 'learning' },
+        { name: 'Python Automation', status: 'completed' },
+        { name: 'Data Structures and Algorithms Fundamentals', status: 'completed' },
       ],
     },
     {
