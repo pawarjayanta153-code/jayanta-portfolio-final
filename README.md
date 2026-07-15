@@ -406,3 +406,4 @@ npm install
 
 Built by Kiro AI for Jayanta Rajendra Pawar.  
 Stack: React · Vite · Three.js · Framer Motion · Lucide React · Web Speech API
+Jayanta Pawar Portfolio
