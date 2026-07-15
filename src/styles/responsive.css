@@ -1,0 +1,264 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   responsive.css — Breakpoint overrides for all screen sizes
+   Breakpoints: 320px | 480px | 768px | 1024px | 1280px | 1440px
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Grid fallbacks for small screens ── */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3.5rem 1.25rem;
+    --card-padding: 1.25rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 3rem 1rem;
+    --card-padding: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ── Navbar responsive ── */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(80vw, 320px);
+    height: 100vh;
+    background: var(--clr-bg-2);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 5rem 2rem;
+    box-shadow: -4px 0 30px rgba(0,0,0,0.4);
+    z-index: calc(var(--z-nav) - 1);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+  }
+
+  .navbar__links.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__actions .btn--outline {
+    display: none;
+  }
+}
+
+/* ── Hero responsive ── */
+@media (max-width: 1024px) {
+  .hero__layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__right {
+    display: none;
+  }
+
+  .hero__socials,
+  .hero__buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── About responsive ── */
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Education responsive ── */
+@media (max-width: 640px) {
+  .timeline__line {
+    left: 1rem;
+  }
+  .timeline__item {
+    padding-left: 3rem;
+  }
+  .timeline__dot {
+    left: 0.55rem;
+  }
+}
+
+/* ── Skills responsive ── */
+@media (max-width: 640px) {
+  .skills__filters {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Projects responsive ── */
+@media (max-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects__filters {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* ── Contact responsive ── */
+@media (max-width: 900px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Footer responsive ── */
+@media (max-width: 640px) {
+  .footer__layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer__links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ── Voice Assistant responsive ── */
+@media (max-width: 480px) {
+  .voice-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .voice-panel {
+    width: min(320px, calc(100vw - 2rem));
+    right: 0;
+  }
+}
+
+/* ── Modal responsive ── */
+@media (max-width: 640px) {
+  .modal__inner {
+    max-height: 95vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    bottom: 0;
+    top: auto;
+    transform: translateX(-50%) translateY(0);
+    left: 50%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ── Currently learning responsive ── */
+@media (max-width: 768px) {
+  .learning__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── No horizontal overflow at any width ── */
+@media (max-width: 320px) {
+  .section {
+    padding: 2.5rem 0.75rem;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+}
+
+/* ── Large desktop enhancements ── */
+@media (min-width: 1440px) {
+  :root {
+    --section-padding: 6rem 2rem;
+  }
+
+  .section {
+    max-width: 1300px;
+  }
+}
+
+/* ── Print styles ── */
+@media print {
+  .navbar,
+  .voice-widget,
+  .back-to-top,
+  .three-canvas,
+  .scroll-progress,
+  .mouse-glow {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
