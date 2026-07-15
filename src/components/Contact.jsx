@@ -412,7 +412,10 @@ export default function Contact() {
                     </div>
 
                     {/* Name + Email row */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                    <div
+                      className="contact-name-email-row"
+                      style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}
+                    >
                       <FormField id="name"  label="Name"  value={fields.name}  onChange={handleChange} error={errors.name}  maxLength={60}  required />
                       <FormField id="email" label="Email" type="email" value={fields.email} onChange={handleChange} error={errors.email} maxLength={120} required />
                     </div>
@@ -436,7 +439,7 @@ export default function Contact() {
                     {/* Submit button */}
                     <motion.button
                       type="submit"
-                      className="btn btn--primary"
+                      className="btn btn--primary contact-submit-btn"
                       disabled={status === 'loading'}
                       whileHover={status !== 'loading' ? { scale: 1.03 } : {}}
                       whileTap={status !== 'loading' ? { scale: 0.97 } : {}}

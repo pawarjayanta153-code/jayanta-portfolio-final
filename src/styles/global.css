@@ -471,3 +471,103 @@ button {
   background: var(--clr-primary-dim);
   color: var(--clr-primary);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PROFILE IMAGE WRAPPER — responsive size via CSS (overrides inline JS)
+   ───────────────────────────────────────────────────────────────────────── */
+.profile-image-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .profile-image-wrapper {
+    width: clamp(180px, 52vw, 240px);
+    height: clamp(180px, 52vw, 240px);
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-image-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CONTACT NAME/EMAIL ROW — single column on mobile
+   ───────────────────────────────────────────────────────────────────────── */
+.contact-name-email-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 520px) {
+  .contact-name-email-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HERO LAYOUT — override inline grid on mobile
+   ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero__layout {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    padding: 2rem 1.25rem 3rem !important;
+    gap: 2rem !important;
+  }
+
+  .hero__right {
+    display: flex !important;
+    order: -1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__socials,
+  .hero__buttons {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__layout {
+    padding: 1.5rem 1rem 2.5rem !important;
+  }
+
+  .hero__buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  .hero__buttons .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ABOUT LAYOUT — override inline grid on mobile
+   ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CONTACT LAYOUT — override inline grid on mobile
+   ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .contact__layout {
+    grid-template-columns: 1fr !important;
+  }
+}

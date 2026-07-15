@@ -20,8 +20,9 @@ const stagger = {
 
 // Status badge colours
 const STATUS_STYLE = {
-  Pursuing:  { bg: 'rgba(246,173,85,0.12)', color: 'var(--clr-warning)', border: 'rgba(246,173,85,0.25)' },
+  Pursuing:  { bg: 'rgba(246,173,85,0.12)',  color: 'var(--clr-warning)', border: 'rgba(246,173,85,0.25)' },
   Completed: { bg: 'rgba(104,211,145,0.12)', color: 'var(--clr-success)', border: 'rgba(104,211,145,0.25)' },
+  Graduated: { bg: 'rgba(104,211,145,0.12)', color: 'var(--clr-success)', border: 'rgba(104,211,145,0.25)' },
 }
 
 export default function Education() {
@@ -49,6 +50,7 @@ export default function Education() {
 
         {/* Timeline */}
         <div
+          className="timeline-container"
           style={{
             position: 'relative',
             maxWidth: 760,
@@ -114,14 +116,17 @@ export default function Education() {
                   style={{ cursor: 'default' }}
                 >
                   {/* Card header */}
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                    gap: '1rem',
-                    flexWrap: 'wrap',
-                    marginBottom: '0.75rem',
-                  }}>
+                  <div
+                    className="edu-card-top-row"
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-start',
+                      gap: '1rem',
+                      flexWrap: 'wrap',
+                      marginBottom: '0.75rem',
+                    }}
+                  >
                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
                       <div style={{
                         width: 44,

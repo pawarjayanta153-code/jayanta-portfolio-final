@@ -89,10 +89,14 @@ function ProfileImage() {
   const [imgError, setImgError] = useState(false)
 
   return (
-    <div style={{ position: 'relative', width: 280, height: 280, margin: '0 auto' }}>
+    <div
+      className="profile-image-wrapper"
+      style={{ position: 'relative', width: 280, height: 280, margin: '0 auto' }}
+    >
 
       {/* Outer animated blue/purple ring — unchanged */}
       <motion.div
+        className="profile-ring-outer"
         animate={{ rotate: 360 }}
         transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
         style={{
@@ -110,6 +114,7 @@ function ProfileImage() {
 
       {/* Inner dashed counter-rotating ring — unchanged */}
       <motion.div
+        className="profile-ring-inner"
         animate={{ rotate: -360 }}
         transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
         style={{
@@ -124,8 +129,8 @@ function ProfileImage() {
       {/* Circular clip container — overflow:hidden creates the circle */}
       <div
         style={{
-          width: 280,
-          height: 280,
+          width: '100%',
+          height: '100%',
           borderRadius: '50%',
           overflow: 'hidden',
           border: '3px solid var(--clr-border)',
@@ -251,6 +256,7 @@ export default function Hero() {
           position: 'relative',
           zIndex: 1,
           width: '100%',
+          boxSizing: 'border-box',
         }}
       >
         {/* ── LEFT: Text content ── */}
@@ -313,7 +319,7 @@ export default function Hero() {
               fontSize: '1rem',
               lineHeight: 1.8,
               color: 'var(--clr-text-muted)',
-              maxWidth: 520,
+              maxWidth: '100%',
             }}
           >
             {personal.tagline}
@@ -428,7 +434,7 @@ export default function Hero() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '2.5rem',
+            gap: '2rem',
           }}
         >
           <ProfileImage />

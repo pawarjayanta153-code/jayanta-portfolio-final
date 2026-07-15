@@ -176,14 +176,17 @@ export default function Footer() {
         <div className="divider" />
 
         {/* Bottom bar */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '0.75rem',
-          paddingTop: '0.5rem',
-        }}>
+        <div
+          className="footer-bottom"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '0.75rem',
+            paddingTop: '0.5rem',
+          }}
+        >
           <p style={{ fontSize: '0.8rem', color: 'var(--clr-text-faint)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
             © {YEAR} Jayanta Rajendra Pawar · Built with
             <Heart size={13} style={{ color: 'var(--clr-error)' }} aria-label="love" />
