@@ -10,11 +10,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { BookOpen, CheckCircle2, RefreshCw, Loader, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react'
 import { currentCourse } from '../data/portfolioData'
 
-// Status visual config
+/**
+ * MODULE_STATUS
+ * Keys must match the `status` values used in portfolioData.js → currentCourse.categories[].modules[].
+ * To add a new status: add a key here and use it in the data file.
+ *
+ * Progress bar counts any module whose status === 'COMPLETED'.
+ */
 const MODULE_STATUS = {
-  completed:   { icon: CheckCircle2, color: 'var(--clr-success)',  label: 'Completed',   bg: 'rgba(104,211,145,0.1)' },
-  practising:  { icon: RefreshCw,    color: 'var(--clr-primary)',  label: 'Practising',  bg: 'var(--clr-primary-dim)' },
-  learning:    { icon: Loader,       color: 'var(--clr-warning)',  label: 'Learning',    bg: 'rgba(246,173,85,0.1)' },
+  COMPLETED:  { icon: CheckCircle2, color: 'var(--clr-success)', label: 'Completed',  bg: 'rgba(104,211,145,0.1)' },
+  PRACTISING: { icon: RefreshCw,    color: 'var(--clr-primary)', label: 'Practising', bg: 'var(--clr-primary-dim)' },
+  LEARNING:   { icon: Loader,       color: 'var(--clr-warning)', label: 'Learning',   bg: 'rgba(246,173,85,0.1)'  },
 }
 
 const fadeUp = {
@@ -26,9 +32,11 @@ const fadeUp = {
 function CategoryCard({ cat, index }) {
   const [expanded, setExpanded] = useState(index < 2) // first two open by default
 
-  const completed  = cat.modules.filter(m => m.status === 'completed').length
-  const total      = cat.modules.length
-  const progress   = Math.round((completed / total) * 100)
+  // Progress is derived entirely from data — no manual counts needed.
+  // Change a module's status to 'COMPLETED' in portfolioData.js and this updates automatically.
+  const completed = cat.modules.filter(m => m.status === 'COMPLETED').length
+  const total     = cat.modules.length
+  const progress  = Math.round((completed / total) * 100)
 
   return (
     <motion.div
@@ -124,7 +132,7 @@ function CategoryCard({ cat, index }) {
               borderTop: '1px solid var(--clr-border)',
             }}>
               {cat.modules.map(mod => {
-                const cfg = MODULE_STATUS[mod.status] || MODULE_STATUS.learning
+                const cfg  = MODULE_STATUS[mod.status] || MODULE_STATUS.LEARNING
                 const Icon = cfg.icon
                 return (
                   <div

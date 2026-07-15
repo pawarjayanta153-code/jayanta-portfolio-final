@@ -132,43 +132,60 @@ export const experience = [
 ]
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
-// status: 'comfortable' | 'familiar' | 'learning'
+/**
+ * HOW TO UPDATE SKILLS
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Each entry has:
+ *   id       – unique key (no spaces)
+ *   name     – display label shown on the card
+ *   category – used by filter tabs: 'programming' | 'frontend' | 'backend' |
+ *              'database' | 'ai' | 'security' | 'tools'
+ *   status   – ONE of these exact uppercase strings:
+ *                'COMFORTABLE'  → green-ish "Comfortable" badge
+ *                'FAMILIAR'     → purple  "Familiar" badge
+ *                'LEARNING'     → amber   "Currently Learning" badge
+ *   icon     – emoji shown on the card
+ *
+ * To update a skill: change ONLY the `status` value.
+ * The badge label, colour, and legend update automatically.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
 export const skills = [
-  // Programming Languages
-  { id: 'python', name: 'Python', category: 'programming', status: 'comfortable', icon: '🐍' },
-  { id: 'javascript', name: 'JavaScript', category: 'programming', status: 'familiar', icon: '⚡' },
-  { id: 'php', name: 'PHP', category: 'programming', status: 'familiar', icon: '🐘' },
-  { id: 'sql', name: 'SQL', category: 'database', status: 'comfortable', icon: '🗄️' },
+  // ── Programming Languages ──────────────────────────────────────────────
+  { id: 'python',      name: 'Python',      category: 'programming', status: 'COMFORTABLE', icon: '🐍' },
+  { id: 'javascript',  name: 'JavaScript',  category: 'programming', status: 'FAMILIAR',    icon: '⚡' },
+  { id: 'php',         name: 'PHP',         category: 'programming', status: 'FAMILIAR',    icon: '🐘' },
+  { id: 'sql',         name: 'SQL',         category: 'database',    status: 'COMFORTABLE', icon: '🗄️' },
 
-  // Frontend
-  { id: 'html5', name: 'HTML5', category: 'frontend', status: 'comfortable', icon: '🌐' },
-  { id: 'css3', name: 'CSS3', category: 'frontend', status: 'comfortable', icon: '🎨' },
-  { id: 'responsive', name: 'Responsive Design', category: 'frontend', status: 'familiar', icon: '📱' },
-  { id: 'jsdom', name: 'JavaScript DOM', category: 'frontend', status: 'familiar', icon: '🏗️' },
+  // ── Frontend ───────────────────────────────────────────────────────────
+  { id: 'html5',       name: 'HTML5',             category: 'frontend', status: 'COMFORTABLE', icon: '🌐' },
+  { id: 'css3',        name: 'CSS3',              category: 'frontend', status: 'COMFORTABLE', icon: '🎨' },
+  { id: 'responsive',  name: 'Responsive Design', category: 'frontend', status: 'FAMILIAR',    icon: '📱' },
+  { id: 'jsdom',       name: 'JavaScript DOM',    category: 'frontend', status: 'FAMILIAR',    icon: '🏗️' },
 
-  // Backend & Database
-  { id: 'python-backend', name: 'Python Backend Fundamentals', category: 'backend', status: 'learning', icon: '⚙️' },
-  { id: 'php-backend', name: 'PHP Backend', category: 'backend', status: 'familiar', icon: '🔧' },
-  { id: 'mysql', name: 'MySQL', category: 'database', status: 'comfortable', icon: '🐬' },
-  { id: 'rest-api', name: 'REST API Fundamentals', category: 'backend', status: 'learning', icon: '🔌' },
+  // ── Backend & Database ─────────────────────────────────────────────────
+  { id: 'python-backend', name: 'Python Backend Fundamentals', category: 'backend',   status: 'LEARNING',    icon: '⚙️' },
+  { id: 'php-backend',    name: 'PHP Backend',                 category: 'backend',   status: 'FAMILIAR',    icon: '🔧' },
+  { id: 'mysql',          name: 'MySQL',                       category: 'database',  status: 'COMFORTABLE', icon: '🐬' },
+  { id: 'rest-api',       name: 'REST API Fundamentals',       category: 'backend',   status: 'LEARNING',    icon: '🔌' },
 
-  // AI
-  { id: 'genai', name: 'Generative AI Fundamentals', category: 'ai', status: 'learning', icon: '🤖' },
-  { id: 'prompt-eng', name: 'Prompt Engineering', category: 'ai', status: 'learning', icon: '✍️' },
+  // ── AI ─────────────────────────────────────────────────────────────────
+  { id: 'genai',       name: 'Generative AI Fundamentals', category: 'ai', status: 'LEARNING', icon: '🤖' },
+  { id: 'prompt-eng',  name: 'Prompt Engineering',         category: 'ai', status: 'LEARNING', icon: '✍️' },
 
-  // Cyber Security
-  { id: 'cs-fundamentals', name: 'Cyber Security Fundamentals', category: 'security', status: 'familiar', icon: '🔒' },
-  { id: 'networking', name: 'Networking Basics', category: 'security', status: 'familiar', icon: '🌐' },
-  { id: 'owasp', name: 'OWASP Basics', category: 'security', status: 'familiar', icon: '🛡️' },
-  { id: 'security-awareness', name: 'Security Awareness', category: 'security', status: 'comfortable', icon: '👁️' },
-  { id: 'doc-reporting', name: 'Documentation & Reporting', category: 'security', status: 'comfortable', icon: '📝' },
+  // ── Cyber Security ─────────────────────────────────────────────────────
+  { id: 'cs-fundamentals',   name: 'Cyber Security Fundamentals', category: 'security', status: 'FAMILIAR',    icon: '🔒' },
+  { id: 'networking',        name: 'Networking Basics',           category: 'security', status: 'FAMILIAR',    icon: '🌐' },
+  { id: 'owasp',             name: 'OWASP Basics',                category: 'security', status: 'FAMILIAR',    icon: '🛡️' },
+  { id: 'security-awareness',name: 'Security Awareness',          category: 'security', status: 'COMFORTABLE', icon: '👁️' },
+  { id: 'doc-reporting',     name: 'Documentation & Reporting',   category: 'security', status: 'COMFORTABLE', icon: '📝' },
 
-  // Tools
-  { id: 'git', name: 'Git', category: 'tools', status: 'familiar', icon: '🌿' },
-  { id: 'github', name: 'GitHub', category: 'tools', status: 'familiar', icon: '🐙' },
-  { id: 'vscode', name: 'VS Code', category: 'tools', status: 'comfortable', icon: '💻' },
-  { id: 'xampp', name: 'XAMPP', category: 'tools', status: 'familiar', icon: '🛠️' },
-  { id: 'postman', name: 'Postman', category: 'tools', status: 'familiar', icon: '📮' },
+  // ── Tools ──────────────────────────────────────────────────────────────
+  { id: 'git',     name: 'Git',     category: 'tools', status: 'FAMILIAR',    icon: '🌿' },
+  { id: 'github',  name: 'GitHub',  category: 'tools', status: 'FAMILIAR',    icon: '🐙' },
+  { id: 'vscode',  name: 'VS Code', category: 'tools', status: 'COMFORTABLE', icon: '💻' },
+  { id: 'xampp',   name: 'XAMPP',   category: 'tools', status: 'FAMILIAR',    icon: '🛠️' },
+  { id: 'postman', name: 'Postman', category: 'tools', status: 'FAMILIAR',    icon: '📮' },
 ]
 
 // Skill filter categories
@@ -184,7 +201,24 @@ export const skillFilters = [
 ]
 
 // ─── Current Learning Course ──────────────────────────────────────────────────
-// moduleStatus: 'learning' | 'practising' | 'completed'
+/**
+ * HOW TO UPDATE COURSE MODULES
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Each module entry has:
+ *   name    – display label shown inside the card
+ *   status  – ONE of these exact uppercase strings:
+ *               'COMPLETED'   → green  ✓ icon, "Completed" label, counts toward progress bar
+ *               'PRACTISING'  → blue   ↻ icon, "Practising" label
+ *               'LEARNING'    → amber  ⟳ icon, "Learning" label
+ *
+ * To update a topic: change ONLY the `status` value.
+ * The progress bar, completed/total counter, icon and label update automatically.
+ *
+ * Progress bar formula (auto-calculated in the UI):
+ *   completed = modules where status === 'COMPLETED'
+ *   progress  = Math.round((completed / total) * 100)
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
 export const currentCourse = {
   title: 'Python Full Stack Development with Generative AI',
   provider: 'Ongoing Professional Course',
@@ -198,14 +232,14 @@ export const currentCourse = {
       title: 'Python & Programming',
       icon: '🐍',
       modules: [
-        { name: 'Python Fundamentals', status: 'completed' },
-        { name: 'Advanced Python', status: 'completed' },
-        { name: 'Object-Oriented Programming', status: 'completed' },
-        { name: 'File Handling', status: 'completed' },
-        { name: 'Exception Handling', status: 'completed' },
-        { name: 'Modules and Packages', status: 'completed' },
-        { name: 'Python Automation', status: 'completed' },
-        { name: 'Data Structures and Algorithms Fundamentals', status: 'completed' },
+        { name: 'Python Fundamentals',                       status: 'COMPLETED' },
+        { name: 'Advanced Python',                           status: 'COMPLETED' },
+        { name: 'Object-Oriented Programming',               status: 'COMPLETED' },
+        { name: 'File Handling',                             status: 'COMPLETED' },
+        { name: 'Exception Handling',                        status: 'COMPLETED' },
+        { name: 'Modules and Packages',                      status: 'COMPLETED' },
+        { name: 'Python Automation',                         status: 'COMPLETED' },
+        { name: 'Data Structures and Algorithms Fundamentals', status: 'COMPLETED' },
       ],
     },
     {
@@ -213,13 +247,13 @@ export const currentCourse = {
       title: 'Frontend Development',
       icon: '🎨',
       modules: [
-        { name: 'HTML5', status: 'completed' },
-        { name: 'CSS3', status: 'completed' },
-        { name: 'Responsive Web Design', status: 'completed' },
-        { name: 'JavaScript ES6+', status: 'practising' },
-        { name: 'DOM Manipulation', status: 'practising' },
-        { name: 'API Integration', status: 'learning' },
-        { name: 'React.js Fundamentals', status: 'learning' },
+        { name: 'HTML5',                  status: 'COMPLETED'  },
+        { name: 'CSS3',                   status: 'COMPLETED'  },
+        { name: 'Responsive Web Design',  status: 'COMPLETED'  },
+        { name: 'JavaScript ES6+',        status: 'PRACTISING' },
+        { name: 'DOM Manipulation',       status: 'PRACTISING' },
+        { name: 'API Integration',        status: 'LEARNING'   },
+        { name: 'React.js Fundamentals',  status: 'LEARNING'   },
       ],
     },
     {
@@ -227,12 +261,12 @@ export const currentCourse = {
       title: 'Backend Development',
       icon: '⚙️',
       modules: [
-        { name: 'Django', status: 'learning' },
-        { name: 'Flask Fundamentals', status: 'learning' },
-        { name: 'REST API Development', status: 'learning' },
-        { name: 'Authentication and Authorization', status: 'learning' },
-        { name: 'Server-Side Validation', status: 'learning' },
-        { name: 'CRUD Applications', status: 'practising' },
+        { name: 'Django',                        status: 'LEARNING'   },
+        { name: 'Flask Fundamentals',            status: 'LEARNING'   },
+        { name: 'REST API Development',          status: 'LEARNING'   },
+        { name: 'Authentication and Authorization', status: 'LEARNING' },
+        { name: 'Server-Side Validation',        status: 'LEARNING'   },
+        { name: 'CRUD Applications',             status: 'PRACTISING' },
       ],
     },
     {
@@ -240,13 +274,13 @@ export const currentCourse = {
       title: 'Database',
       icon: '🗄️',
       modules: [
-        { name: 'SQL', status: 'completed' },
-        { name: 'MySQL', status: 'completed' },
-        { name: 'Database Design', status: 'practising' },
-        { name: 'Joins', status: 'practising' },
-        { name: 'Subqueries', status: 'learning' },
-        { name: 'Normalization', status: 'learning' },
-        { name: 'ORM Fundamentals', status: 'learning' },
+        { name: 'SQL',              status: 'COMPLETED'  },
+        { name: 'MySQL',            status: 'COMPLETED'  },
+        { name: 'Database Design',  status: 'PRACTISING' },
+        { name: 'Joins',            status: 'PRACTISING' },
+        { name: 'Subqueries',       status: 'LEARNING'   },
+        { name: 'Normalization',    status: 'LEARNING'   },
+        { name: 'ORM Fundamentals', status: 'LEARNING'   },
       ],
     },
     {
@@ -254,12 +288,12 @@ export const currentCourse = {
       title: 'Developer Tools',
       icon: '🛠️',
       modules: [
-        { name: 'Git', status: 'practising' },
-        { name: 'GitHub', status: 'practising' },
-        { name: 'VS Code', status: 'completed' },
-        { name: 'Postman', status: 'learning' },
-        { name: 'XAMPP', status: 'completed' },
-        { name: 'Deployment Basics', status: 'learning' },
+        { name: 'Git',               status: 'PRACTISING' },
+        { name: 'GitHub',            status: 'PRACTISING' },
+        { name: 'VS Code',           status: 'COMPLETED'  },
+        { name: 'Postman',           status: 'LEARNING'   },
+        { name: 'XAMPP',             status: 'COMPLETED'  },
+        { name: 'Deployment Basics', status: 'LEARNING'   },
       ],
     },
     {
@@ -267,19 +301,19 @@ export const currentCourse = {
       title: 'Generative AI',
       icon: '🤖',
       modules: [
-        { name: 'Generative AI Fundamentals', status: 'learning' },
-        { name: 'Prompt Engineering', status: 'learning' },
-        { name: 'LLM Fundamentals', status: 'learning' },
-        { name: 'AI API Integration', status: 'learning' },
-        { name: 'OpenAI-Compatible API Concepts', status: 'learning' },
-        { name: 'LangChain Fundamentals', status: 'learning' },
-        { name: 'Retrieval-Augmented Generation', status: 'learning' },
-        { name: 'Vector Database Fundamentals', status: 'learning' },
-        { name: 'AI Chatbot Development', status: 'learning' },
-        { name: 'Document Question Answering', status: 'learning' },
-        { name: 'AI Automation', status: 'learning' },
-        { name: 'Responsible AI Fundamentals', status: 'learning' },
-        { name: 'AI Agents Fundamentals', status: 'learning' },
+        { name: 'Generative AI Fundamentals',       status: 'LEARNING' },
+        { name: 'Prompt Engineering',               status: 'LEARNING' },
+        { name: 'LLM Fundamentals',                 status: 'LEARNING' },
+        { name: 'AI API Integration',               status: 'LEARNING' },
+        { name: 'OpenAI-Compatible API Concepts',   status: 'LEARNING' },
+        { name: 'LangChain Fundamentals',           status: 'LEARNING' },
+        { name: 'Retrieval-Augmented Generation',   status: 'LEARNING' },
+        { name: 'Vector Database Fundamentals',     status: 'LEARNING' },
+        { name: 'AI Chatbot Development',           status: 'LEARNING' },
+        { name: 'Document Question Answering',      status: 'LEARNING' },
+        { name: 'AI Automation',                    status: 'LEARNING' },
+        { name: 'Responsible AI Fundamentals',      status: 'LEARNING' },
+        { name: 'AI Agents Fundamentals',           status: 'LEARNING' },
       ],
     },
   ],

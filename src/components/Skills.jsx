@@ -7,11 +7,15 @@ import React, { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { skills, skillFilters } from '../data/portfolioData'
 
-// Status display config
+/**
+ * STATUS_CONFIG
+ * Keys must match the `status` values used in portfolioData.js → skills[].
+ * To add a new status: add a key here and use it in the data file.
+ */
 const STATUS_CONFIG = {
-  comfortable: { label: 'Comfortable',         className: 'badge badge--cyan' },
-  familiar:    { label: 'Familiar',             className: 'badge badge--accent' },
-  learning:    { label: 'Currently Learning',   className: 'badge badge--learning' },
+  COMFORTABLE: { label: 'Comfortable',       className: 'badge badge--cyan'    },
+  FAMILIAR:    { label: 'Familiar',           className: 'badge badge--accent'  },
+  LEARNING:    { label: 'Currently Learning', className: 'badge badge--learning'},
 }
 
 const fadeUp = {
@@ -115,7 +119,7 @@ export default function Skills() {
         >
           <AnimatePresence mode="popLayout">
             {filtered.map(skill => {
-              const statusCfg = STATUS_CONFIG[skill.status] || STATUS_CONFIG.familiar
+              const statusCfg = STATUS_CONFIG[skill.status] || STATUS_CONFIG.FAMILIAR
               return (
                 <motion.div
                   key={skill.id}
