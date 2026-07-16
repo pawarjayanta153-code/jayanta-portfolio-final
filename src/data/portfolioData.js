@@ -320,6 +320,9 @@ export const currentCourse = {
 }
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
+// To add a project: copy one entry and fill in the fields.
+// github / liveDemo: use null when the link is not yet available.
+// The UI shows "Coming Soon" automatically for null links.
 export const projects = [
   {
     id: 'ticket-booking',
@@ -351,72 +354,9 @@ export const projects = [
       'MySQL relational schema design',
       'Full stack integration from UI to database',
     ],
-    /** ← EDIT THIS – add your real repo link when ready */
     github: null,
     liveDemo: null,
     featured: true,
-  },
-  {
-    id: 'ai-chat',
-    title: 'AI Chat Application',
-    categories: ['ai', 'web'],
-    image: '/images/project-ai-chat.svg',
-    technologies: ['Python', 'JavaScript', 'HTML', 'CSS', 'API Integration'],
-    shortDescription:
-      'A conversational web application designed to provide AI-powered responses through a clean chat interface.',
-    description:
-      'A conversational web application designed to provide AI-powered responses through a clean chat interface. The project explores AI API integration with a responsive frontend.',
-    features: [
-      'Chat interface',
-      'User message history',
-      'API-ready structure',
-      'Responsive layout',
-      'Error and loading states',
-    ],
-    problem: 'Explore how to connect a web frontend to an AI response API and present results in a usable chat UI.',
-    challenges: [
-      'Handling asynchronous API calls gracefully',
-      'Managing conversation context',
-      'Building a responsive chat layout',
-    ],
-    learningOutcomes: [
-      'JavaScript async/await patterns',
-      'REST API integration from the frontend',
-      'UX design for conversational interfaces',
-    ],
-    github: null,
-    liveDemo: null,
-    featured: true,
-  },
-  {
-    id: 'ngo-portal',
-    title: 'NGO Donation Portal',
-    categories: ['web', 'database'],
-    image: '/images/project-ngo.svg',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
-    shortDescription:
-      'A donation management portal designed to connect contributors with social causes and maintain donation-related information.',
-    description:
-      'A donation management portal designed to connect contributors with social causes and maintain donation-related information. Built as an academic full stack project.',
-    features: [
-      'Donor registration',
-      'Donation form',
-      'Cause information pages',
-      'Database storage',
-      'Responsive user interface',
-    ],
-    problem: 'Build a practical web application that handles form submissions, stores records and presents cause information.',
-    challenges: [
-      'Designing a donor registration and data storage flow',
-      'Handling form validation on both client and server side',
-    ],
-    learningOutcomes: [
-      'PHP form handling and MySQL integration',
-      'Responsive layout design with HTML/CSS',
-    ],
-    github: null,
-    liveDemo: null,
-    featured: false,
   },
   {
     id: 'mental-health-chatbot',
@@ -445,36 +385,6 @@ export const projects = [
       'Python NLP fundamentals',
       'Responsible AI and ethical design considerations',
       'Chatbot conversation flow design',
-    ],
-    github: null,
-    liveDemo: null,
-    featured: false,
-  },
-  {
-    id: 'xai-demo',
-    title: 'Explainable AI Demonstration',
-    categories: ['ai', 'python'],
-    image: '/images/project-xai.svg',
-    technologies: ['Python', 'Machine Learning Fundamentals', 'LIME', 'SHAP'],
-    shortDescription:
-      'An academic project exploring how model predictions can be interpreted using explainable AI techniques.',
-    description:
-      'An academic project exploring how model predictions can be interpreted using explainable AI techniques including LIME and SHAP. The project does not claim production machine learning expertise.',
-    features: [
-      'Model prediction visualization',
-      'LIME explanation output',
-      'SHAP value exploration',
-      'Academic documentation',
-    ],
-    problem: 'Understand why machine learning models produce specific predictions by applying XAI interpretation techniques.',
-    challenges: [
-      'Understanding LIME and SHAP library APIs',
-      'Visualising explanation outputs clearly',
-    ],
-    learningOutcomes: [
-      'Explainable AI fundamentals',
-      'Python ML library usage',
-      'Academic reporting and analysis',
     ],
     github: null,
     liveDemo: null,
@@ -515,13 +425,14 @@ export const projects = [
 ]
 
 // Project filter categories
+// Only include filters that match at least one project's categories array.
 export const projectFilters = [
-  { id: 'all', label: 'All' },
-  { id: 'fullstack', label: 'Full Stack' },
-  { id: 'web', label: 'Web' },
-  { id: 'python', label: 'Python' },
-  { id: 'ai', label: 'AI' },
-  { id: 'database', label: 'Database' },
+  { id: 'all',      label: 'All'       },
+  { id: 'fullstack',label: 'Full Stack' },
+  { id: 'web',      label: 'Web'       },
+  { id: 'python',   label: 'Python'    },
+  { id: 'ai',       label: 'AI'        },
+  { id: 'database', label: 'Database'  },
 ]
 
 // ─── Voice Assistant Scripts ───────────────────────────────────────────────────
