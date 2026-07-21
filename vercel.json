@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!resume/|images/|favicon\\.svg).*)",
       "destination": "/index.html"
     }
   ],
@@ -10,8 +10,8 @@
       "source": "/resume/(.*)",
       "headers": [
         {
-          "key": "Content-Disposition",
-          "value": "inline"
+          "key": "Content-Type",
+          "value": "application/pdf"
         }
       ]
     }

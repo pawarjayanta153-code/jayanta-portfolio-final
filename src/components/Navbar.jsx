@@ -180,7 +180,7 @@ export default function Navbar() {
             href={personal.resumePath}
             target="_blank"
             rel="noopener noreferrer"
-            download="Jayanta_Rajendra_Pawar_Resume.pdf"
+            download="Jayanta Pawar Resume.pdf"
             className="btn btn--outline btn--sm"
             aria-label="Download Resume PDF"
             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
@@ -331,7 +331,7 @@ export default function Navbar() {
               href={personal.resumePath}
               target="_blank"
               rel="noopener noreferrer"
-              download="Jayanta_Rajendra_Pawar_Resume.pdf"
+              download="Jayanta Pawar Resume.pdf"
               className="btn btn--primary"
               style={{ marginTop: '1rem', justifyContent: 'center' }}
               aria-label="Download Resume PDF"

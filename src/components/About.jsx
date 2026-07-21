@@ -89,7 +89,7 @@ export default function About() {
               </a>
               <a
                 href={personal.resumePath}
-                download="Jayanta_Rajendra_Pawar_Resume.pdf"
+                download="Jayanta Pawar Resume.pdf"
                 className="btn btn--outline"
                 aria-label="Download resume PDF"
               >

@@ -346,7 +346,7 @@ export default function Hero() {
               href={personal.resumePath}
               target="_blank"
               rel="noopener noreferrer"
-              download="Jayanta_Rajendra_Pawar_Resume.pdf"
+              download="Jayanta Pawar Resume.pdf"
               className="btn btn--outline"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}

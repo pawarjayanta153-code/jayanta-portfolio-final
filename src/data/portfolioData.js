@@ -35,8 +35,10 @@ export const personal = {
   languages: ['Marathi', 'Hindi', 'English'],
   careerGoal: 'Software Engineer',
 
-  // Path to the resume PDF inside the public/ folder
-  resumePath: '/resume/Jayanta_Rajendra_Pawar_Resume.pdf',
+  // Path to the resume PDF inside the public/resume/ folder.
+  // File on disk:  public/resume/Jayanta_Pawar_Resume.pdf
+  // Download name shown to the user: "Jayanta Pawar Resume.pdf"
+  resumePath: '/resume/Jayanta_Pawar_Resume.pdf',
 
   // Path to the profile photo inside public/images/
   profileImage: '/images/profile-placeholder.jpeg',
