@@ -472,13 +472,14 @@ export const contactInfo = {
 
 // ─── Navigation Links ─────────────────────────────────────────────────────────
 export const navLinks = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'education', label: 'Education', href: '#education' },
-  { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'home',       label: 'Home',       href: '#home'       },
+  { id: 'about',      label: 'About',      href: '#about'      },
+  { id: 'education',  label: 'Education',  href: '#education'  },
+  { id: 'skills',     label: 'Skills',     href: '#skills'     },
+  { id: 'learning',   label: 'Currently Learning', href: '#learning'   },
   { id: 'experience', label: 'Experience', href: '#experience' },
-  { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
+  { id: 'projects',   label: 'Projects',   href: '#projects'   },
+  { id: 'contact',    label: 'Contact',    href: '#contact'    },
 ]
 
 // ─── Footer Links ─────────────────────────────────────────────────────────────

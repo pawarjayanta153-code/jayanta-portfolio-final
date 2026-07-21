@@ -15,11 +15,20 @@ import { projects, projectFilters } from '../data/portfolioData'
 
 function ProjectImage({ src, alt, style }) {
   const [error, setError] = useState(false)
+
+  // Extract layout styles safe for both <img> and <div> fallback
+  const layoutStyle = {
+    width:        style?.width,
+    height:       style?.height,
+    borderRadius: style?.borderRadius,
+    marginBottom: style?.marginBottom,
+  }
+
   if (error || !src) {
     return (
       <div
         className="img-fallback"
-        style={{ ...style, minHeight: 180, flexDirection: 'column', gap: '0.5rem' }}
+        style={{ ...layoutStyle, minHeight: 180, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
         aria-label={`Project image unavailable: ${alt}`}
       >
         <ImageIcon size={32} style={{ color: 'var(--clr-text-faint)', opacity: 0.4 }} aria-hidden="true" />

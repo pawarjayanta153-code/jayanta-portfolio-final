@@ -190,17 +190,18 @@ export default function Contact() {
     }
 
     // ── mailto: fallback ──────────────────────────────────────────────
+    // Use window.open so the SPA stays loaded while the email client opens.
     const body = encodeURIComponent(
       `Name: ${fields.name.trim()}\nEmail: ${fields.email.trim()}\n\n${fields.message.trim()}`
     )
     const subj = encodeURIComponent(fields.subject.trim())
-    window.location.href = `mailto:${personal.email}?subject=${subj}&body=${body}`
+    window.open(`mailto:${personal.email}?subject=${subj}&body=${body}`, '_self')
 
-    // Show success state after opening mail client
+    // Show success state — email client opens without navigating away
     setTimeout(() => {
       setStatus('success')
       setFields(INITIAL)
-    }, 500)
+    }, 300)
   }
 
   const handleReset = () => {
