@@ -459,14 +459,15 @@ export const contactInfo = {
     'I am open to entry-level software development roles, internships, collaborative projects and learning opportunities.',
 
   /**
-   * EmailJS configuration
-   * Leave all values as empty strings to fall back to mailto.
-   * ← EDIT THIS – fill these in after creating a free EmailJS account
+   * EmailJS configuration — values are read from the .env file.
+   * Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and
+   * VITE_EMAILJS_PUBLIC_KEY in .env (never commit secrets to git).
+   * If any value is missing the form falls back to mailto:.
    */
   emailjs: {
-    serviceId: '',
-    templateId: '',
-    publicKey: '',
+    serviceId:  import.meta.env.VITE_EMAILJS_SERVICE_ID  || '',
+    templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+    publicKey:  import.meta.env.VITE_EMAILJS_PUBLIC_KEY  || '',
   },
 }
 

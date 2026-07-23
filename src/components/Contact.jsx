@@ -3,19 +3,28 @@
  * Professional contact section with:
  *  – Client-side validated form (name, email, subject, message)
  *  – Honeypot spam field (hidden from real users)
- *  – EmailJS integration (falls back to mailto: when not configured)
+ *  – EmailJS integration via @emailjs/browser (falls back to mailto: when not configured)
  *  – Loading, success and error states
  *  – Character limits with live counter
  *  – Direct contact info cards (email, phone, LinkedIn, GitHub, location)
- *  – No API keys hardcoded — config lives in portfolioData.js
+ *  – No API keys hardcoded — credentials live in .env and are read via import.meta.env
  */
 import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail, Phone, Linkedin, Github, MapPin,
   Send, CheckCircle, AlertCircle, Loader, MessageSquare
 } from 'lucide-react'
 import { personal, contactInfo } from '../data/portfolioData'
+
+// ── EmailJS credentials ───────────────────────────────────────────────────
+// These are client-side public keys — safe to include in frontend code.
+// EmailJS public keys are designed to be exposed in the browser.
+// Also read from .env so they can be overridden at deploy time.
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  || 'service_61ixcal'
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_0hfydx7'
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  || 'kYHtjaX6DKGb5Bn_s'
 
 // ── Validation helpers ─────────────────────────────────────────────────────
 const RULES = {
@@ -153,7 +162,7 @@ export default function Contact() {
     const errs = validate(fields)
     if (Object.keys(errs).length > 0) {
       setErrors(errs)
-      // Focus first error field
+      // Focus first error field for accessibility
       const firstKey = Object.keys(errs)[0]
       document.getElementById(firstKey)?.focus()
       return
@@ -162,42 +171,43 @@ export default function Contact() {
     setStatus('loading')
     setErrorMsg('')
 
-    // ── EmailJS path ──────────────────────────────────────────────────
-    const { serviceId, templateId, publicKey } = contactInfo.emailjs
-    if (serviceId && templateId && publicKey) {
+    console.log('[EmailJS] Attempting send with service:', EMAILJS_SERVICE_ID, '| template:', EMAILJS_TEMPLATE_ID)
+
+    // ── EmailJS send ──────────────────────────────────────────────────
+    if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY) {
       try {
-        // Dynamic import so bundle stays lean when EmailJS is not configured
-        const emailjs = await import('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm')
+        console.log('[EmailJS] Calling emailjs.send()')
         await emailjs.send(
-          serviceId,
-          templateId,
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
           {
-            from_name:    fields.name.trim(),
-            from_email:   fields.email.trim(),
-            subject:      fields.subject.trim(),
-            message:      fields.message.trim(),
-            to_name:      personal.firstName,
+            name:    fields.name.trim(),    // {{name}}
+            email:   fields.email.trim(),   // {{email}}
+            title:   fields.subject.trim(), // {{title}}
+            message: fields.message.trim(), // {{message}}
           },
-          publicKey
+          EMAILJS_PUBLIC_KEY
         )
+        console.log('[EmailJS] Send successful')
         setStatus('success')
         setFields(INITIAL)
         return
       } catch (err) {
-        console.error('EmailJS error:', err)
-        // Fall through to mailto
+        console.error('[EmailJS] Send failed:', err)
+        setStatus('error')
+        setErrorMsg('Failed to send your message. Please try emailing directly or try again later.')
+        return
       }
     }
 
-    // ── mailto: fallback ──────────────────────────────────────────────
-    // Use window.open so the SPA stays loaded while the email client opens.
+    console.warn('[EmailJS] Credentials missing — falling back to mailto')
+    // ── mailto: fallback ─────────────────────────────────────────────
     const body = encodeURIComponent(
       `Name: ${fields.name.trim()}\nEmail: ${fields.email.trim()}\n\n${fields.message.trim()}`
     )
     const subj = encodeURIComponent(fields.subject.trim())
     window.open(`mailto:${personal.email}?subject=${subj}&body=${body}`, '_self')
 
-    // Show success state — email client opens without navigating away
     setTimeout(() => {
       setStatus('success')
       setFields(INITIAL)
@@ -462,7 +472,6 @@ export default function Contact() {
 
                     <p style={{ fontSize: '0.75rem', color: 'var(--clr-text-faint)', lineHeight: 1.6 }}>
                       Fields marked <span aria-label="required" style={{ color: 'var(--clr-error)' }}>*</span> are required.
-                      {!contactInfo.emailjs.serviceId && ' Your message will open your default email client.'}
                     </p>
                   </motion.form>
                 )}
